@@ -5,7 +5,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
-    <View
+    <com.dualranger.tictactoe.DrawView
         android:id="@+id/space_5"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -21,6 +21,7 @@
         android:layout_above="@+id/space_5"/>
 
     <View
+        android:id="@+id/bottom_horizontal"
         android:layout_width="match_parent"
         android:layout_height="10dp"
         android:layout_marginRight="16dp"
@@ -29,6 +30,7 @@
         android:layout_below="@+id/space_5"/>
 
     <View
+        android:id="@+id/left_vertical"
         android:layout_width="10dp"
         android:layout_height="match_parent"
         android:layout_marginBottom="16dp"
@@ -37,11 +39,68 @@
         android:layout_toLeftOf="@+id/space_5"/>
 
     <View
+        android:id="@+id/right_vertical"
         android:layout_width="10dp"
         android:layout_height="match_parent"
         android:layout_marginBottom="16dp"
         android:layout_marginTop="16dp"
         android:background="@color/boardLines"
         android:layout_toRightOf="@+id/space_5"/>
+
+    <com.dualranger.tictactoe.DrawView
+        android:id="@+id/space_4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_toLeftOf="@id/left_vertical"
+        android:layout_centerVertical="true"/>
+
+    <com.dualranger.tictactoe.DrawView
+        android:id="@+id/space_6"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_toRightOf="@id/right_vertical"
+        android:layout_centerVertical="true"/>
+
+    <com.dualranger.tictactoe.DrawView
+    android:id="@+id/space_2"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:layout_above="@id/top_horizontal"
+    android:layout_centerHorizontal="true"/>
+
+    <com.dualranger.tictactoe.DrawView
+        android:id="@+id/space_1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_above="@id/top_horizontal"
+        android:layout_toLeftOf="@id/left_vertical"/>
+
+    <com.dualranger.tictactoe.DrawView
+        android:id="@+id/space_3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_above="@id/top_horizontal"
+        android:layout_toRightOf="@id/right_vertical"/>
+
+    <com.dualranger.tictactoe.DrawView
+        android:id="@+id/space_7"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/bottom_horizontal"
+        android:layout_centerHorizontal="true"/>
+
+    <com.dualranger.tictactoe.DrawView
+        android:id="@+id/space_8"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/bottom_horizontal"
+        android:layout_toLeftOf="@id/left_vertical"/>
+
+    <com.dualranger.tictactoe.DrawView
+        android:id="@+id/space_9"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/bottom_horizontal"
+        android:layout_toRightOf="@id/right_vertical"/>
 
 </RelativeLayout>

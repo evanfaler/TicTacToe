@@ -4,22 +4,67 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.View;
+
+import org.w3c.dom.Attr;
 
 public class DrawView extends View {
     private Paint paint = new Paint();
+    final float SCALE = getContext().getResources().getDisplayMetrics().density;
+    private int player = 2;
 
-    public DrawView(Context context) {
+    public int getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(int player) {
+        this.player = player;
+    }
+
+   public DrawView(Context context) {
         super(context);
-        paint.setColor(Color.BLUE);
-        paint.setStrokeWidth(20);
+       float valueWidthDips = 10.0f;
+       int strokeWidthPix = (int)(valueWidthDips * SCALE + 0.5f);
+       paint.setStrokeWidth(strokeWidthPix);
+       paint.setStyle(Paint.Style.STROKE);
+       paint.setStrokeCap(Paint.Cap.ROUND);
+    }
+
+    public DrawView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+
+        float valueWidthDips = 10.0f;
+        int strokeWidthPix = (int)(valueWidthDips * SCALE + 0.5f);
+        paint.setStrokeWidth(strokeWidthPix);
+        paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeCap(Paint.Cap.ROUND);
     }
 
+
     @Override
     public void onDraw(Canvas canvas) {
-        canvas.drawLine(0,0,this.getWidth(),this.getHeight(),paint);
-        canvas.drawLine(this.getWidth(),0,0,this.getHeight(),paint);
+        if(player == 1){ //Draw X
+            paint.setColor(getResources().getColor(R.color.xColor));
+            int width = this.getMeasuredWidth();
+            Double percentWidth = (this.getMeasuredWidth()*.3)/2;
+            Integer percentWidthInt = percentWidth.intValue();
+            int dimension = width - percentWidthInt;
+
+            canvas.drawLine(percentWidthInt, percentWidthInt,dimension,dimension,paint);
+            canvas.drawLine(dimension,percentWidthInt,percentWidthInt,dimension,paint);
+        } else if(player == 0) { //Draw O
+            paint.setColor(getResources().getColor(R.color.oColor));
+            float viewWidth = this.getMeasuredWidth();
+            double percentWidth = (this.getMeasuredWidth()*.3)/2;
+            float width = viewWidth - Double.valueOf(percentWidth).floatValue();
+
+            canvas.drawCircle(viewWidth/2,viewWidth/2,width/2,paint);
+        } else {
+            //Do nothing
+        }
+
     }
 
 }
