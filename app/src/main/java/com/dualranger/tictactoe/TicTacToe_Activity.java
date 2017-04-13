@@ -1,26 +1,39 @@
 package com.dualranger.tictactoe;
 
-import android.support.v4.app.Fragment;
+import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
+import android.widget.Toast;
 
 public class TicTacToe_Activity extends FragmentActivity {
-
+    private GameBoard_Fragment gameBoardFragment;
+    private Bottom_Fragment bottomFragment;
+    private Top_Fragment topFragment;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tictactoe_framelayoutt);
 
+        gameBoardFragment = new GameBoard_Fragment();
+        bottomFragment = new Bottom_Fragment();
+        topFragment = new Top_Fragment();
+
         FragmentManager fm = getSupportFragmentManager();
-        Fragment fragment = fm.findFragmentById(R.id.fragment_container);
+        FragmentTransaction transaction = fm.beginTransaction();
 
-        if(fragment == null) {
-            fragment = new TicTacToe_Fragment();
-            fm.beginTransaction()
-                    .add(R.id.fragment_container,fragment)
-                    .commit();
+        transaction.add(R.id.game_board_container, gameBoardFragment, "GameBoard Fragment");
+        transaction.add(R.id.bottom_area_container, bottomFragment, "Bottom Area Fragment");
+        transaction.add(R.id.top_area_container, topFragment, "Top Area Fragment");
 
+        transaction.commit();
+    }
+
+    public void clearGameBoard(){
+        if(gameBoardFragment != null){
+            gameBoardFragment.clearBoard();
+        } else {
+            Toast.makeText(getApplicationContext(),"fragment 2  is null", Toast.LENGTH_SHORT).show();
         }
 
     }

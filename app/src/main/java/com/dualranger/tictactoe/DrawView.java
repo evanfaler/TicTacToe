@@ -2,18 +2,23 @@ package com.dualranger.tictactoe;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.view.View;
-
-import org.w3c.dom.Attr;
 
 public class DrawView extends View {
     private Paint paint = new Paint();
     final float SCALE = getContext().getResources().getDisplayMetrics().density;
     private int player = 2;
+    private boolean playable = true;
+
+    public boolean isPlayable() {
+        return playable;
+    }
+
+    public void setPlayable(boolean playable) {
+        this.playable = playable;
+    }
 
     public int getPlayer() {
         return player;
@@ -54,6 +59,8 @@ public class DrawView extends View {
 
             canvas.drawLine(percentWidthInt, percentWidthInt,dimension,dimension,paint);
             canvas.drawLine(dimension,percentWidthInt,percentWidthInt,dimension,paint);
+
+            playable = false;
         } else if(player == 0) { //Draw O
             paint.setColor(getResources().getColor(R.color.oColor));
             float viewWidth = this.getMeasuredWidth();
@@ -61,6 +68,8 @@ public class DrawView extends View {
             float width = viewWidth - Double.valueOf(percentWidth).floatValue();
 
             canvas.drawCircle(viewWidth/2,viewWidth/2,width/2,paint);
+
+            playable = false;
         } else {
             //Do nothing
         }
