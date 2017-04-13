@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relative_board_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <View
+        android:id="@+id/space_5"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"/>
+
+    <View
+        android:id="@+id/top_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:background="@color/boardLines"
+        android:layout_above="@+id/space_5"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:background="@color/boardLines"
+        android:layout_below="@+id/space_5"/>
+
+    <View
+        android:layout_width="10dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/boardLines"
+        android:layout_toLeftOf="@+id/space_5"/>
+
+    <View
+        android:layout_width="10dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/boardLines"
+        android:layout_toRightOf="@+id/space_5"/>
+
+</RelativeLayout>

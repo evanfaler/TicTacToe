@@ -3,4 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="boardBackground">#FCA17D</color>
+    <color name="boardLines">#B8765B</color>
+    <color name="xColor">#2C363F</color>
+    <color name="oColor">#F2F5EA</color>
+
 </resources>
