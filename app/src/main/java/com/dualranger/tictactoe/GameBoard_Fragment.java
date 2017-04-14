@@ -35,20 +35,28 @@ public class GameBoard_Fragment extends Fragment implements View.OnClickListener
 
         space1 = (DrawView) v.findViewById(R.id.space_1);
         space1.setOnClickListener(this);
+
         space2 = (DrawView) v.findViewById(R.id.space_2);
         space2.setOnClickListener(this);
+
         space3 = (DrawView) v.findViewById(R.id.space_3);
         space3.setOnClickListener(this);
+
         space4 = (DrawView) v.findViewById(R.id.space_4);
         space4.setOnClickListener(this);
+
         space5 = (DrawView) v.findViewById(R.id.space_5);
         space5.setOnClickListener(this);
+
         space6 = (DrawView) v.findViewById(R.id.space_6);
         space6.setOnClickListener(this);
+
         space7 = (DrawView) v.findViewById(R.id.space_7);
         space7.setOnClickListener(this);
+
         space8 = (DrawView) v.findViewById(R.id.space_8);
         space8.setOnClickListener(this);
+
         space9 = (DrawView) v.findViewById(R.id.space_9);
         space9.setOnClickListener(this);
 

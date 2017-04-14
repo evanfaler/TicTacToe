@@ -29,7 +29,7 @@ public class DrawView extends View {
     }
 
    public DrawView(Context context) {
-        super(context);
+       super(context);
        float valueWidthDips = 10.0f;
        int strokeWidthPix = (int)(valueWidthDips * SCALE + 0.5f);
        paint.setStrokeWidth(strokeWidthPix);
@@ -73,6 +73,18 @@ public class DrawView extends View {
         } else {
             //Do nothing
         }
+
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        int parentWidth = MeasureSpec.getSize(widthMeasureSpec);
+        int viewDimension = (int) Math.round(parentWidth * .3);
+        int viewWidthPix = (int)(viewDimension * SCALE);
+
+        this.getLayoutParams().width = viewWidthPix;
+        this.getLayoutParams().height = viewWidthPix;
+        super.onMeasure(widthMeasureSpec, widthMeasureSpec);
 
     }
 
