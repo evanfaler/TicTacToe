@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.Toast;
 
 public class DrawView extends View {
     private Paint paint = new Paint();
@@ -78,13 +79,16 @@ public class DrawView extends View {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int parentWidth = MeasureSpec.getSize(widthMeasureSpec);
+        int parentWidth = ((View) this.getParent()).getWidth();
         int viewDimension = (int) Math.round(parentWidth * .3);
         int viewWidthPix = (int)(viewDimension * SCALE);
 
-        this.getLayoutParams().width = viewWidthPix;
-        this.getLayoutParams().height = viewWidthPix;
+        Toast.makeText(this.getContext(),"parentWidth: " + parentWidth + " viewDimension: " + viewDimension, Toast.LENGTH_SHORT).show();
+
+        this.getLayoutParams().width = 500;
+        this.getLayoutParams().height = 500;
         super.onMeasure(widthMeasureSpec, widthMeasureSpec);
+        this.invalidate();
 
     }
 
