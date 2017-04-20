@@ -1,26 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:layout_margin="16dp">
+    android:background="@color/titleBackground"
+    android:orientation="horizontal"
+    android:gravity="center">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Player 1:" />
-
-    <View
-        android:layout_width="5dp"
+    <Space
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_margin="16dp"
-        android:background="@color/boardLines" />
+        android:layout_weight="10" />
 
     <TextView
+        android:id="@+id/x_score_marker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Player 2:"/>
+        android:text="X Score: "
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="10" />
+
+    <TextView
+        android:id="@+id/o_score_marker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Y Score: "
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="10" />
 
 </LinearLayout>

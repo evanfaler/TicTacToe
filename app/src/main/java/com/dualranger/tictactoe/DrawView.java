@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 
@@ -41,9 +42,8 @@ public class DrawView extends View {
     public DrawView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        float valueWidthDips = 10.0f;
-        int strokeWidthPix = (int)(valueWidthDips * SCALE + 0.5f);
-        paint.setStrokeWidth(strokeWidthPix);
+        float strokeWidth = .03f * getContext().getResources().getDisplayMetrics().widthPixels;
+        paint.setStrokeWidth(strokeWidth);
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeCap(Paint.Cap.ROUND);
     }
@@ -51,43 +51,29 @@ public class DrawView extends View {
 
     @Override
     public void onDraw(Canvas canvas) {
-        if(player == 1){ //Draw X
+        if (player == 1) { //Draw X
             paint.setColor(getResources().getColor(R.color.xColor));
             int width = this.getMeasuredWidth();
-            Double percentWidth = (this.getMeasuredWidth()*.3)/2;
+            Double percentWidth = (this.getMeasuredWidth() * .3) / 2;
             Integer percentWidthInt = percentWidth.intValue();
             int dimension = width - percentWidthInt;
 
-            canvas.drawLine(percentWidthInt, percentWidthInt,dimension,dimension,paint);
-            canvas.drawLine(dimension,percentWidthInt,percentWidthInt,dimension,paint);
+            canvas.drawLine(percentWidthInt, percentWidthInt, dimension, dimension, paint);
+            canvas.drawLine(dimension, percentWidthInt, percentWidthInt, dimension, paint);
 
             playable = false;
-        } else if(player == 0) { //Draw O
+        } else if (player == 0) { //Draw O
             paint.setColor(getResources().getColor(R.color.oColor));
             float viewWidth = this.getMeasuredWidth();
-            double percentWidth = (this.getMeasuredWidth()*.3)/2;
+            double percentWidth = (this.getMeasuredWidth() * .3) / 2;
             float width = viewWidth - Double.valueOf(percentWidth).floatValue();
 
-            canvas.drawCircle(viewWidth/2,viewWidth/2,width/2,paint);
+            canvas.drawCircle(viewWidth / 2, viewWidth / 2, width / 2, paint);
 
             playable = false;
         } else {
             //Do nothing
         }
-
-    }
-
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int parentWidth = MeasureSpec.getSize(widthMeasureSpec);
-        int viewDimension = (int) Math.round(parentWidth * .3);
-
-        Log.d("TicTacToe", "View: " + this.getResources().getResourceName(this.getId()) + "parentWidth: " + parentWidth + ", viewDimension: " + viewDimension);
-
-        this.getLayoutParams().width = 500;
-        this.getLayoutParams().height = 500;
-        super.onMeasure(widthMeasureSpec, widthMeasureSpec);
-        this.invalidate();
 
     }
 
