@@ -2,10 +2,14 @@ package com.dualranger.tictactoe;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.util.Arrays;
 import java.util.List;
@@ -21,6 +25,11 @@ public class GameBoard_Fragment extends Fragment implements View.OnClickListener
     private DrawView space8;
     private DrawView space9;
     List<DrawView> gameSpaces;
+    private int winner;
+    private int xScore = 0;
+    private int oScore = 0;
+    private TextView xScoreView;
+    private TextView oScoreView;
 
     int alternateShape = 1;
 
@@ -74,6 +83,7 @@ public class GameBoard_Fragment extends Fragment implements View.OnClickListener
                     space1.setPlayable(false);
                     alternateShape++;
                     space1.invalidate();
+                    isWin();
                 }else{
                     Toast.makeText(v.getContext(),"Invalid Location", Toast.LENGTH_SHORT).show();
                 }
@@ -84,6 +94,7 @@ public class GameBoard_Fragment extends Fragment implements View.OnClickListener
                     space2.setPlayable(false);
                     alternateShape++;
                     space2.invalidate();
+                    isWin();
                 }else{
                     Toast.makeText(v.getContext(),"Invalid Location", Toast.LENGTH_SHORT).show();
                 }
@@ -94,6 +105,7 @@ public class GameBoard_Fragment extends Fragment implements View.OnClickListener
                     space3.setPlayable(false);
                     alternateShape++;
                     space3.invalidate();
+                    isWin();
                 }else{
                     Toast.makeText(v.getContext(),"Invalid Location", Toast.LENGTH_SHORT).show();
                 }
@@ -104,6 +116,7 @@ public class GameBoard_Fragment extends Fragment implements View.OnClickListener
                     space4.setPlayable(false);
                     alternateShape++;
                     space4.invalidate();
+                    isWin();
                 }else{
                     Toast.makeText(v.getContext(),"Invalid Location", Toast.LENGTH_SHORT).show();
                 }
@@ -114,6 +127,7 @@ public class GameBoard_Fragment extends Fragment implements View.OnClickListener
                     space5.setPlayable(false);
                     alternateShape++;
                     space5.invalidate();
+                    isWin();
                 }else{
                     Toast.makeText(v.getContext(),"Invalid Location", Toast.LENGTH_SHORT).show();
                 }
@@ -124,6 +138,7 @@ public class GameBoard_Fragment extends Fragment implements View.OnClickListener
                     space6.setPlayable(false);
                     alternateShape++;
                     space6.invalidate();
+                    isWin();
                 }else{
                     Toast.makeText(v.getContext(),"Invalid Location", Toast.LENGTH_SHORT).show();
                 }
@@ -134,6 +149,7 @@ public class GameBoard_Fragment extends Fragment implements View.OnClickListener
                     space7.setPlayable(false);
                     alternateShape++;
                     space7.invalidate();
+                    isWin();
                 }else{
                     Toast.makeText(v.getContext(),"Invalid Location", Toast.LENGTH_SHORT).show();
                 }
@@ -144,6 +160,7 @@ public class GameBoard_Fragment extends Fragment implements View.OnClickListener
                     space8.setPlayable(false);
                     alternateShape++;
                     space8.invalidate();
+                    isWin();
                 }else{
                     Toast.makeText(v.getContext(),"Invalid Location", Toast.LENGTH_SHORT).show();
                 }
@@ -154,6 +171,7 @@ public class GameBoard_Fragment extends Fragment implements View.OnClickListener
                     space9.setPlayable(false);
                     alternateShape++;
                     space9.invalidate();
+                    isWin();
                 }else{
                     Toast.makeText(v.getContext(),"Invalid Location", Toast.LENGTH_SHORT).show();
                 }
@@ -167,6 +185,46 @@ public class GameBoard_Fragment extends Fragment implements View.OnClickListener
             space.setPlayable(true);
             space.invalidate();
         }
+    }
+
+    public void isWin(){
+        int winner = 0;
+
+        if(space1.getPlayer() == space5.getPlayer() && space5.getPlayer() == space9.getPlayer() && space1.getPlayer() != 2){
+            winner = space1.getPlayer();
+            Log.d("Debug: ","Loop Ran correctly. Player #: " + Integer.toString(winner));
+        }else if (space3.getPlayer() == space5.getPlayer() && space5.getPlayer() == space7.getPlayer()&& space3.getPlayer() != 2){
+            winner = space3.getPlayer();
+        }else if (space1.getPlayer() == space4.getPlayer() && space4.getPlayer() == space7.getPlayer() && space1.getPlayer() != 2){
+            winner = space1.getPlayer();
+        }else if (space2.getPlayer() == space5.getPlayer() && space5.getPlayer() == space8.getPlayer() && space2.getPlayer() != 2){
+            winner = space2.getPlayer();
+        }else if (space3.getPlayer() == space6.getPlayer() && space6.getPlayer() == space9.getPlayer() && space3.getPlayer() != 2){
+            winner = space3.getPlayer();
+        }else if (space1.getPlayer() == space2.getPlayer() && space2.getPlayer() == space3.getPlayer() && space1.getPlayer() != 2){
+            winner = space1.getPlayer();
+        }else if (space4.getPlayer() == space5.getPlayer() && space5.getPlayer() == space6.getPlayer() && space4.getPlayer() != 2){
+            winner = space4.getPlayer();
+        }else if (space7.getPlayer() == space8.getPlayer() && space8.getPlayer() == space9.getPlayer() && space7.getPlayer() != 2){
+            winner = space7.getPlayer();
+        }else {
+            winner = 2;
+        }
+
+
+        if (winner == 1){
+            xScore++;
+            TextView xScoreMarker = (TextView)this.getActivity().findViewById(R.id.x_score_marker);
+            xScoreMarker.setText("X Score: " + Integer.toString(xScore));
+        }else if (winner == 0){
+            oScore++;
+            TextView xScoreMarker = (TextView)this.getActivity().findViewById(R.id.o_score_marker);
+            xScoreMarker.setText("O Score: " + Integer.toString(oScore));
+        }else{
+            //Do something/Continue Play
+        }
+
+
     }
 
 }
