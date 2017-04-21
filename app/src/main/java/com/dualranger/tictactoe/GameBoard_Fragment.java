@@ -184,6 +184,7 @@ public class GameBoard_Fragment extends Fragment implements View.OnClickListener
             space.setPlayer(2);
             space.setPlayable(true);
             space.invalidate();
+            alternateShape = 1;
         }
     }
 
