@@ -37,4 +37,9 @@ public class TicTacToe_Activity extends FragmentActivity {
         }
 
     }
+
+    public void changePlayer(int player){
+        topFragment.changePlayer(player);
+
+    }
 }

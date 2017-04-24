@@ -26,6 +26,7 @@
             android:textSize="20sp"/>
 
         <View
+            android:id="@+id/x_play_marker"
             android:layout_width="100dp"
             android:layout_height="5dp"
             android:background="@color/boardLines"/>
@@ -52,6 +53,7 @@
             android:textSize="20sp"/>
 
         <View
+            android:id="@+id/o_play_marker"
             android:layout_width="100dp"
             android:layout_height="5dp"
             android:background="@color/boardLines"/>

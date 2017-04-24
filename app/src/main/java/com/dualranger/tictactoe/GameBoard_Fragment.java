@@ -9,8 +9,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -24,6 +22,8 @@ public class GameBoard_Fragment extends Fragment implements View.OnClickListener
     private DrawView space7;
     private DrawView space8;
     private DrawView space9;
+    private View xLine;
+    private View oLine;
     List<DrawView> gameSpaces;
     private int winner;
     private int xScore = 0;
@@ -222,6 +222,11 @@ public class GameBoard_Fragment extends Fragment implements View.OnClickListener
             TextView xScoreMarker = (TextView)this.getActivity().findViewById(R.id.o_score_marker);
             xScoreMarker.setText("O Score: " + Integer.toString(oScore));
         }else{
+            if(alternateShape % 2 != 0){
+                ((TicTacToe_Activity) getActivity()).changePlayer(1);
+            }else{
+                ((TicTacToe_Activity) getActivity()).changePlayer(0);
+            }
             //Do something/Continue Play
         }
 
