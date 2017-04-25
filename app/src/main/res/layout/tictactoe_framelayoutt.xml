@@ -3,21 +3,29 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/boardBackground">
 
     <FrameLayout
         android:id="@+id/top_area_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="30">
 
     </FrameLayout>
+
+    <View
+        android:id="@+id/toolbar_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="@drawable/drop_shadow" />
 
     <FrameLayout
         android:id="@+id/game_board_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true">
+        android:layout_centerInParent="true"
+        android:layout_weight="40">
 
     </FrameLayout>
 
@@ -25,7 +33,7 @@
         android:id="@+id/bottom_area_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="30">
 
     </FrameLayout>
 

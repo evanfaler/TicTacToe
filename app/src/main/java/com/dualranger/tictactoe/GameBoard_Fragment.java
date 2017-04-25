@@ -2,7 +2,6 @@ package com.dualranger.tictactoe;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -184,7 +183,6 @@ public class GameBoard_Fragment extends Fragment implements View.OnClickListener
             space.setPlayer(2);
             space.setPlayable(true);
             space.invalidate();
-            alternateShape = 1;
         }
     }
 
@@ -193,7 +191,6 @@ public class GameBoard_Fragment extends Fragment implements View.OnClickListener
 
         if(space1.getPlayer() == space5.getPlayer() && space5.getPlayer() == space9.getPlayer() && space1.getPlayer() != 2){
             winner = space1.getPlayer();
-            Log.d("Debug: ","Loop Ran correctly. Player #: " + Integer.toString(winner));
         }else if (space3.getPlayer() == space5.getPlayer() && space5.getPlayer() == space7.getPlayer()&& space3.getPlayer() != 2){
             winner = space3.getPlayer();
         }else if (space1.getPlayer() == space4.getPlayer() && space4.getPlayer() == space7.getPlayer() && space1.getPlayer() != 2){
@@ -215,12 +212,16 @@ public class GameBoard_Fragment extends Fragment implements View.OnClickListener
 
         if (winner == 1){
             xScore++;
-            TextView xScoreMarker = (TextView)this.getActivity().findViewById(R.id.x_score_marker);
-            xScoreMarker.setText("X Score: " + Integer.toString(xScore));
+            ((TicTacToe_Activity) getActivity()).updateScore(xScore, oScore);
+            disableSpaces(); //disable all clicks until reset button is pressed.
+            ((TicTacToe_Activity) getActivity()).changePlayer(0);
+            alternateShape = 2;
         }else if (winner == 0){
             oScore++;
-            TextView xScoreMarker = (TextView)this.getActivity().findViewById(R.id.o_score_marker);
-            xScoreMarker.setText("O Score: " + Integer.toString(oScore));
+            ((TicTacToe_Activity) getActivity()).updateScore(xScore, oScore);
+            disableSpaces(); //disable all clicks until reset button is pressed.
+            alternateShape = 1;
+            ((TicTacToe_Activity) getActivity()).changePlayer(1);
         }else{
             if(alternateShape % 2 != 0){
                 ((TicTacToe_Activity) getActivity()).changePlayer(1);
@@ -230,7 +231,30 @@ public class GameBoard_Fragment extends Fragment implements View.OnClickListener
             //Do something/Continue Play
         }
 
+    }
 
+    public void disableSpaces(){
+        space1.setEnabled(false);
+        space2.setEnabled(false);
+        space3.setEnabled(false);
+        space4.setEnabled(false);
+        space5.setEnabled(false);
+        space6.setEnabled(false);
+        space7.setEnabled(false);
+        space8.setEnabled(false);
+        space9.setEnabled(false);
+    }
+
+    public void enableSpaces(){
+        space1.setEnabled(true);
+        space2.setEnabled(true);
+        space3.setEnabled(true);
+        space4.setEnabled(true);
+        space5.setEnabled(true);
+        space6.setEnabled(true);
+        space7.setEnabled(true);
+        space8.setEnabled(true);
+        space9.setEnabled(true);
     }
 
 }
