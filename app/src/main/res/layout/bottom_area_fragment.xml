@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/boardBackground">
+    android:background="@color/colorPrimary">
 
     <Button
         android:id="@+id/reset_button"

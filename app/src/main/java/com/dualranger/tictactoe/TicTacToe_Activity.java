@@ -32,6 +32,7 @@ public class TicTacToe_Activity extends FragmentActivity {
     public void clearGameBoard(){
         if(gameBoardFragment != null){
             gameBoardFragment.clearBoard();
+            gameBoardFragment.enableSpaces();
         } else {
             Toast.makeText(getApplicationContext(),"fragment 2  is null", Toast.LENGTH_SHORT).show();
         }
@@ -41,5 +42,9 @@ public class TicTacToe_Activity extends FragmentActivity {
     public void changePlayer(int player){
         topFragment.changePlayer(player);
 
+    }
+
+    public void updateScore(int x, int o){
+        topFragment.updateScore(x, o);
     }
 }
