@@ -55,7 +55,7 @@ public class Top_Fragment extends Fragment implements View.OnClickListener{
         mOScore = oScore;
 
         xScoreTextView.setText("X Score: " + Integer.toString(mXScore));
-        oScoreTextView.setText("Y Score: " + Integer.toString(mOScore));
+        oScoreTextView.setText("O Score: " + Integer.toString(mOScore));
 
     }
 
