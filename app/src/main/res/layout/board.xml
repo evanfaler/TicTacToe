@@ -14,11 +14,12 @@
         android:orientation="vertical"
         android:layout_weight="30">
 
-        <com.dualranger.tictactoe.DrawView
+        <com.dualranger.tictactoe.SpaceView
             android:id="@+id/space_1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="30"/>
+            android:layout_weight="30"
+            android:layout_margin="10dp"/>
 
         <View
             android:id="@+id/horiz_one"
@@ -27,11 +28,12 @@
             android:background="@color/boardLines"
             android:layout_weight="3"/>
 
-        <com.dualranger.tictactoe.DrawView
+        <com.dualranger.tictactoe.SpaceView
             android:id="@+id/space_4"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="30"/>
+            android:layout_weight="30"
+            android:layout_margin="10dp"/>
 
         <View
             android:id="@+id/horiz_two"
@@ -40,11 +42,12 @@
             android:background="@color/boardLines"
             android:layout_weight="3"/>
 
-        <com.dualranger.tictactoe.DrawView
+        <com.dualranger.tictactoe.SpaceView
             android:id="@+id/space_7"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="30"/>
+            android:layout_weight="30"
+            android:layout_margin="10dp"/>
 
     </LinearLayout>
 
@@ -62,11 +65,12 @@
         android:orientation="vertical"
         android:layout_weight="30">
 
-        <com.dualranger.tictactoe.DrawView
+        <com.dualranger.tictactoe.SpaceView
             android:id="@+id/space_2"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="30"/>
+            android:layout_weight="30"
+            android:layout_margin="10dp"/>
 
         <View
             android:id="@+id/horiz_three"
@@ -75,11 +79,12 @@
             android:background="@color/boardLines"
             android:layout_weight="3"/>
 
-        <com.dualranger.tictactoe.DrawView
+        <com.dualranger.tictactoe.SpaceView
             android:id="@+id/space_5"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="30"/>
+            android:layout_weight="30"
+            android:layout_margin="10dp"/>
 
         <View
             android:id="@+id/horiz_four"
@@ -88,11 +93,12 @@
             android:background="@color/boardLines"
             android:layout_weight="3"/>
 
-        <com.dualranger.tictactoe.DrawView
+        <com.dualranger.tictactoe.SpaceView
             android:id="@+id/space_8"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="30"/>
+            android:layout_weight="30"
+            android:layout_margin="10dp"/>
 
     </LinearLayout>
 
@@ -110,11 +116,12 @@
         android:orientation="vertical"
         android:layout_weight="30">
 
-        <com.dualranger.tictactoe.DrawView
+        <com.dualranger.tictactoe.SpaceView
             android:id="@+id/space_3"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="30"/>
+            android:layout_weight="30"
+            android:layout_margin="10dp"/>
 
         <View
             android:id="@+id/horiz_five"
@@ -123,11 +130,12 @@
             android:background="@color/boardLines"
             android:layout_weight="3"/>
 
-        <com.dualranger.tictactoe.DrawView
+        <com.dualranger.tictactoe.SpaceView
             android:id="@+id/space_6"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="30"/>
+            android:layout_weight="30"
+            android:layout_margin="10dp"/>
 
         <View
             android:id="@+id/horiz_six"
@@ -136,11 +144,12 @@
             android:background="@color/boardLines"
             android:layout_weight="3"/>
 
-        <com.dualranger.tictactoe.DrawView
+        <com.dualranger.tictactoe.SpaceView
             android:id="@+id/space_9"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="30"/>
+            android:layout_weight="30"
+            android:layout_margin="10dp"/>
 
     </LinearLayout>
 

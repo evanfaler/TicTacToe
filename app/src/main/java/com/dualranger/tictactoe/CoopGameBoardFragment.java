@@ -11,19 +11,19 @@ import android.widget.Toast;
 import java.util.Arrays;
 import java.util.List;
 
-public class GameBoard_Fragment extends Fragment implements View.OnClickListener {
-    private DrawView space1;
-    private DrawView space2;
-    private DrawView space3;
-    private DrawView space4;
-    private DrawView space5;
-    private DrawView space6;
-    private DrawView space7;
-    private DrawView space8;
-    private DrawView space9;
+public class CoopGameBoardFragment extends Fragment implements View.OnClickListener {
+    private SpaceView space1;
+    private SpaceView space2;
+    private SpaceView space3;
+    private SpaceView space4;
+    private SpaceView space5;
+    private SpaceView space6;
+    private SpaceView space7;
+    private SpaceView space8;
+    private SpaceView space9;
     private View xLine;
     private View oLine;
-    List<DrawView> gameSpaces;
+    List<SpaceView> gameSpaces;
     private int winner;
     private int xScore = 0;
     private int oScore = 0;
@@ -41,31 +41,31 @@ public class GameBoard_Fragment extends Fragment implements View.OnClickListener
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_board, container, false);
 
-        space1 = (DrawView) v.findViewById(R.id.space_1);
+        space1 = (SpaceView) v.findViewById(R.id.space_1);
         space1.setOnClickListener(this);
 
-        space2 = (DrawView) v.findViewById(R.id.space_2);
+        space2 = (SpaceView) v.findViewById(R.id.space_2);
         space2.setOnClickListener(this);
 
-        space3 = (DrawView) v.findViewById(R.id.space_3);
+        space3 = (SpaceView) v.findViewById(R.id.space_3);
         space3.setOnClickListener(this);
 
-        space4 = (DrawView) v.findViewById(R.id.space_4);
+        space4 = (SpaceView) v.findViewById(R.id.space_4);
         space4.setOnClickListener(this);
 
-        space5 = (DrawView) v.findViewById(R.id.space_5);
+        space5 = (SpaceView) v.findViewById(R.id.space_5);
         space5.setOnClickListener(this);
 
-        space6 = (DrawView) v.findViewById(R.id.space_6);
+        space6 = (SpaceView) v.findViewById(R.id.space_6);
         space6.setOnClickListener(this);
 
-        space7 = (DrawView) v.findViewById(R.id.space_7);
+        space7 = (SpaceView) v.findViewById(R.id.space_7);
         space7.setOnClickListener(this);
 
-        space8 = (DrawView) v.findViewById(R.id.space_8);
+        space8 = (SpaceView) v.findViewById(R.id.space_8);
         space8.setOnClickListener(this);
 
-        space9 = (DrawView) v.findViewById(R.id.space_9);
+        space9 = (SpaceView) v.findViewById(R.id.space_9);
         space9.setOnClickListener(this);
 
         gameSpaces = Arrays.asList(space1, space2, space3, space4, space5, space6, space7, space8, space9);
@@ -179,7 +179,7 @@ public class GameBoard_Fragment extends Fragment implements View.OnClickListener
     }
 
     public void clearBoard(){
-        for(DrawView space:gameSpaces){
+        for(SpaceView space:gameSpaces){
             space.setPlayer(2);
             space.setPlayable(true);
             space.invalidate();
@@ -210,26 +210,26 @@ public class GameBoard_Fragment extends Fragment implements View.OnClickListener
         }
 
 
-        if (winner == 1){
-            xScore++;
-            ((TicTacToe_Activity) getActivity()).updateScore(xScore, oScore);
-            disableSpaces(); //disable all clicks until reset button is pressed.
-            ((TicTacToe_Activity) getActivity()).changePlayer(0);
-            alternateShape = 2;
-        }else if (winner == 0){
-            oScore++;
-            ((TicTacToe_Activity) getActivity()).updateScore(xScore, oScore);
-            disableSpaces(); //disable all clicks until reset button is pressed.
-            alternateShape = 1;
-            ((TicTacToe_Activity) getActivity()).changePlayer(1);
-        }else{
-            if(alternateShape % 2 != 0){
-                ((TicTacToe_Activity) getActivity()).changePlayer(1);
-            }else{
-                ((TicTacToe_Activity) getActivity()).changePlayer(0);
-            }
-            //Do something/Continue Play
-        }
+//        if (winner == 1){
+//            xScore++;
+//            ((CoopActivity) getActivity()).updateScore(xScore, oScore);
+//            disableSpaces(); //disable all clicks until reset button is pressed.
+//            ((CoopActivity) getActivity()).changePlayer(0);
+//            alternateShape = 2;
+//        }else if (winner == 0){
+//            oScore++;
+//            ((CoopActivity) getActivity()).updateScore(xScore, oScore);
+//            disableSpaces(); //disable all clicks until reset button is pressed.
+//            alternateShape = 1;
+//            ((CoopActivity) getActivity()).changePlayer(1);
+//        }else{
+//            if(alternateShape % 2 != 0){
+//                ((CoopActivity) getActivity()).changePlayer(1);
+//            }else{
+//                ((CoopActivity) getActivity()).changePlayer(0);
+//            }
+//            //Do something/Continue Play
+//        }
 
     }
 
