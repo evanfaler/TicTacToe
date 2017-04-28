@@ -21,9 +21,7 @@ public class CoopGameBoardFragment extends Fragment implements View.OnClickListe
     private SpaceView space7;
     private SpaceView space8;
     private SpaceView space9;
-    private View xLine;
-    private View oLine;
-    List<SpaceView> gameSpaces;
+    private List<SpaceView> gameSpaces;
     private int winner;
     private int xScore = 0;
     private int oScore = 0;
@@ -31,6 +29,11 @@ public class CoopGameBoardFragment extends Fragment implements View.OnClickListe
     private TextView oScoreView;
 
     int alternateShape = 1;
+
+    public void resetScore(){
+        xScore = 0;
+        oScore = 0;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -182,6 +185,7 @@ public class CoopGameBoardFragment extends Fragment implements View.OnClickListe
         for(SpaceView space:gameSpaces){
             space.setPlayer(2);
             space.setPlayable(true);
+            space.setBackgroundResource(R.drawable.blank);
             space.invalidate();
         }
     }
@@ -210,26 +214,26 @@ public class CoopGameBoardFragment extends Fragment implements View.OnClickListe
         }
 
 
-//        if (winner == 1){
-//            xScore++;
-//            ((CoopActivity) getActivity()).updateScore(xScore, oScore);
-//            disableSpaces(); //disable all clicks until reset button is pressed.
-//            ((CoopActivity) getActivity()).changePlayer(0);
-//            alternateShape = 2;
-//        }else if (winner == 0){
-//            oScore++;
-//            ((CoopActivity) getActivity()).updateScore(xScore, oScore);
-//            disableSpaces(); //disable all clicks until reset button is pressed.
-//            alternateShape = 1;
-//            ((CoopActivity) getActivity()).changePlayer(1);
-//        }else{
-//            if(alternateShape % 2 != 0){
-//                ((CoopActivity) getActivity()).changePlayer(1);
-//            }else{
-//                ((CoopActivity) getActivity()).changePlayer(0);
-//            }
-//            //Do something/Continue Play
-//        }
+        if (winner == 1){
+            xScore++;
+            ((CoopActivity) getActivity()).updateScoreboard(xScore, oScore);
+            disableSpaces(); //disable all clicks until reset button is pressed.
+            //Change player via changing color of X or O
+            alternateShape = 2;
+        }else if (winner == 0){
+            oScore++;
+            ((CoopActivity) getActivity()).updateScoreboard(xScore, oScore);
+            disableSpaces(); //disable all clicks until reset button is pressed.
+            alternateShape = 1;
+            //Change player via changing color of X or O
+        }else{
+            if(alternateShape % 2 != 0){
+                //Change player via changing color of X or O
+            }else{
+                //Change player via changing color of X or O
+            }
+            //Do something/Continue Play
+        }
 
     }
 

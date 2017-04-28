@@ -2,10 +2,14 @@ package com.dualranger.tictactoe;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.icu.util.Measure;
 import android.util.AttributeSet;
 import android.view.View;
 
 public class SpaceView extends View {
+    //No Player = 2
+    //X = 1
+    //O = 0
     private int player = 2;
     private boolean playable = true;
 
@@ -27,7 +31,6 @@ public class SpaceView extends View {
 
    public SpaceView(Context context) {
        super(context);
-
     }
 
     public SpaceView(Context context, AttributeSet attrs) {
@@ -46,7 +49,6 @@ public class SpaceView extends View {
         } else {
             //Do nothing
         }
-
     }
 
 }

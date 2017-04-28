@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/boardBackground">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/app_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:titleTextColor="@color/white"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".5"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <View
+            android:id="@+id/left_space"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+
+        <com.dualranger.tictactoe.ScoreDotView
+            android:id="@+id/x1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:scaleType="fitCenter"
+            android:background="@drawable/dot_empty"/>
+
+        <com.dualranger.tictactoe.ScoreDotView
+            android:id="@+id/x2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:scaleType="fitCenter"
+            android:background="@drawable/dot_empty"/>
+
+        <com.dualranger.tictactoe.ScoreDotView
+            android:id="@+id/x3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:scaleType="fitCenter"
+            android:background="@drawable/dot_empty"/>
+
+        <com.dualranger.tictactoe.ScoreView
+            android:id="@+id/x_score_marker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:scaleType="fitCenter"
+            android:background="@drawable/x_score_icon"/>
+
+        <View
+            android:id="@+id/center_space"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+
+        <com.dualranger.tictactoe.ScoreView
+            android:id="@+id/o_score_marker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:scaleType="fitCenter"
+            android:background="@drawable/o_score_icon"/>
+
+        <com.dualranger.tictactoe.ScoreDotView
+            android:id="@+id/o1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:scaleType="fitCenter"
+            android:background="@drawable/dot_empty"/>
+
+        <com.dualranger.tictactoe.ScoreDotView
+            android:id="@+id/o2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:scaleType="fitCenter"
+            android:background="@drawable/dot_empty"/>
+
+        <com.dualranger.tictactoe.ScoreDotView
+            android:id="@+id/o3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:scaleType="fitCenter"
+            android:background="@drawable/dot_empty"/>
+
+        <View
+            android:id="@+id/right_space"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/game_board_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".5"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/reset_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reset Button"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

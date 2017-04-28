@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.View;
 
 /**
  * Created by evanfaler on 4/27/17.
@@ -15,10 +16,13 @@ import android.view.MenuInflater;
 public class SinglePlayerActivity extends AppCompatActivity {
 
     private SinglePlayerGameBoardFragment gameBoardFragment;
+    private View leftSpace;
+    private View centerSpace;
+    private View rightSpace;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tictactoe_framelayoutt);
+        setContentView(R.layout.tictactoe_single_player_framelayoutt);
         Toolbar appToolbar = (Toolbar) findViewById(R.id.app_toolbar);
         setSupportActionBar(appToolbar);
 
@@ -30,6 +34,17 @@ public class SinglePlayerActivity extends AppCompatActivity {
         transaction.add(R.id.game_board_container, gameBoardFragment, "GameBoard Fragment");
 
         transaction.commit();
+
+        //Give width to spaces in scoreboard.
+        int width = this.getWindow().getDecorView().getWidth();
+        float spaceWidth = width * .1f; //Set each space width to 10% of screen width.
+        int viewWidth = Math.round(spaceWidth);
+        leftSpace = findViewById(R.id.left_space);
+        leftSpace.getLayoutParams().width = viewWidth;
+        centerSpace = findViewById(R.id.center_space);
+        centerSpace.getLayoutParams().width = viewWidth;
+        rightSpace = findViewById(R.id.right_space);
+        rightSpace.getLayoutParams().width = viewWidth;
     }
 
     @Override

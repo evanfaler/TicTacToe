@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dualranger.tictactoe">
+    
+    <compatible-screens>
+        <!-- all small size screens -->
+        <screen android:screenDensity="ldpi" android:screenSize="small"/>
+        <screen android:screenDensity="mdpi" android:screenSize="small"/>
+        <screen android:screenDensity="hdpi" android:screenSize="small"/>
+        <screen android:screenDensity="xhdpi" android:screenSize="small"/>
+        <screen android:screenDensity="xxhdpi" android:screenSize="small"/>
+        <screen android:screenDensity="xxxhdpi" android:screenSize="small"/>
+        <!-- all normal screens -->
+        <screen android:screenDensity="ldpi" android:screenSize="normal"/>
+        <screen android:screenDensity="mdpi" android:screenSize="normal"/>
+        <screen android:screenDensity="hdpi" android:screenSize="normal"/>
+        <screen android:screenDensity="xhdpi" android:screenSize="normal"/>
+        <screen android:screenDensity="xxhdpi" android:screenSize="normal"/>
+        <screen android:screenDensity="xxxhdpi" android:screenSize="normal"/>
+        <!-- all large screens -->
+        <screen android:screenDensity="ldpi" android:screenSize="large"/>
+        <screen android:screenDensity="mdpi" android:screenSize="large"/>
+        <screen android:screenDensity="hdpi" android:screenSize="large"/>
+        <screen android:screenDensity="xhdpi" android:screenSize="large"/>
+        <screen android:screenDensity="xxhdpi" android:screenSize="large"/>
+        <screen android:screenDensity="xxxhdpi" android:screenSize="large"/>
+    </compatible-screens>
+    
 
     <application
         android:allowBackup="true"
