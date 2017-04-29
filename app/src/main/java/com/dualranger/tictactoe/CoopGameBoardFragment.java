@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Arrays;
@@ -25,8 +24,7 @@ public class CoopGameBoardFragment extends Fragment implements View.OnClickListe
     private int winner;
     private int xScore = 0;
     private int oScore = 0;
-    private TextView xScoreView;
-    private TextView oScoreView;
+    private int[][] mGameBoard;
 
     private int alternateShape = 1;
 
@@ -73,6 +71,12 @@ public class CoopGameBoardFragment extends Fragment implements View.OnClickListe
 
         gameSpaces = Arrays.asList(space1, space2, space3, space4, space5, space6, space7, space8, space9);
 
+        mGameBoard = new int[][] {
+                {2,2,2},
+                {2,2,2},
+                {2,2,2}
+        };
+
         return v;
     }
 
@@ -83,10 +87,10 @@ public class CoopGameBoardFragment extends Fragment implements View.OnClickListe
                 if(space1.isPlayable()){
                     space1.setPlayer(alternateShape%2);
                     space1.setPlayable(false);
+                    mGameBoard[0][0] = alternateShape%2;
                     alternateShape++;
                     space1.invalidate();
                     isWin();
-                    System.gc();
                 }else{
                     Toast.makeText(v.getContext(),"Invalid Location", Toast.LENGTH_SHORT).show();
                 }
@@ -95,10 +99,10 @@ public class CoopGameBoardFragment extends Fragment implements View.OnClickListe
                 if(space2.isPlayable()){
                     space2.setPlayer(alternateShape%2);
                     space2.setPlayable(false);
+                    mGameBoard[0][1] = alternateShape%2;
                     alternateShape++;
                     space2.invalidate();
                     isWin();
-                    System.gc();
                 }else{
                     Toast.makeText(v.getContext(),"Invalid Location", Toast.LENGTH_SHORT).show();
                 }
@@ -107,10 +111,10 @@ public class CoopGameBoardFragment extends Fragment implements View.OnClickListe
                 if(space3.isPlayable()){
                     space3.setPlayer(alternateShape%2);
                     space3.setPlayable(false);
+                    mGameBoard[0][2] = alternateShape%2;
                     alternateShape++;
                     space3.invalidate();
                     isWin();
-                    System.gc();
                 }else{
                     Toast.makeText(v.getContext(),"Invalid Location", Toast.LENGTH_SHORT).show();
                 }
@@ -119,6 +123,7 @@ public class CoopGameBoardFragment extends Fragment implements View.OnClickListe
                 if(space4.isPlayable()){
                     space4.setPlayer(alternateShape%2);
                     space4.setPlayable(false);
+                    mGameBoard[1][0] = alternateShape%2;
                     alternateShape++;
                     space4.invalidate();
                     isWin();
@@ -131,10 +136,10 @@ public class CoopGameBoardFragment extends Fragment implements View.OnClickListe
                 if(space5.isPlayable()){
                     space5.setPlayer(alternateShape%2);
                     space5.setPlayable(false);
+                    mGameBoard[1][1] = alternateShape%2;
                     alternateShape++;
                     space5.invalidate();
                     isWin();
-                    System.gc();
                 }else{
                     Toast.makeText(v.getContext(),"Invalid Location", Toast.LENGTH_SHORT).show();
                 }
@@ -143,10 +148,10 @@ public class CoopGameBoardFragment extends Fragment implements View.OnClickListe
                 if(space6.isPlayable()){
                     space6.setPlayer(alternateShape%2);
                     space6.setPlayable(false);
+                    mGameBoard[1][2] = alternateShape%2;
                     alternateShape++;
                     space6.invalidate();
                     isWin();
-                    System.gc();
                 }else{
                     Toast.makeText(v.getContext(),"Invalid Location", Toast.LENGTH_SHORT).show();
                 }
@@ -155,10 +160,10 @@ public class CoopGameBoardFragment extends Fragment implements View.OnClickListe
                 if(space7.isPlayable()){
                     space7.setPlayer(alternateShape%2);
                     space7.setPlayable(false);
+                    mGameBoard[2][0] = alternateShape%2;
                     alternateShape++;
                     space7.invalidate();
                     isWin();
-                    System.gc();
                 }else{
                     Toast.makeText(v.getContext(),"Invalid Location", Toast.LENGTH_SHORT).show();
                 }
@@ -167,10 +172,10 @@ public class CoopGameBoardFragment extends Fragment implements View.OnClickListe
                 if(space8.isPlayable()){
                     space8.setPlayer(alternateShape%2);
                     space8.setPlayable(false);
+                    mGameBoard[2][1] = alternateShape%2;
                     alternateShape++;
                     space8.invalidate();
                     isWin();
-                    System.gc();
                 }else{
                     Toast.makeText(v.getContext(),"Invalid Location", Toast.LENGTH_SHORT).show();
                 }
@@ -179,10 +184,10 @@ public class CoopGameBoardFragment extends Fragment implements View.OnClickListe
                 if(space9.isPlayable()){
                     space9.setPlayer(alternateShape%2);
                     space9.setPlayable(false);
+                    mGameBoard[2][2] = alternateShape%2;
                     alternateShape++;
                     space9.invalidate();
                     isWin();
-                    System.gc();
                 }else{
                     Toast.makeText(v.getContext(),"Invalid Location", Toast.LENGTH_SHORT).show();
                 }
@@ -190,36 +195,37 @@ public class CoopGameBoardFragment extends Fragment implements View.OnClickListe
         }
     }
 
-    public void clearBoard(){
+    public void resetGame(){
         for(SpaceView space:gameSpaces){
             space.setPlayer(2);
             space.setPlayable(true);
             space.setBackgroundColor(0x000000);
             space.invalidate();
         }
+        resetGameArray();
     }
 
     private void isWin(){
-        if(space1.getPlayer() == space5.getPlayer() && space5.getPlayer() == space9.getPlayer() && space1.getPlayer() != 2){
-            winner = space1.getPlayer();
-        }else if (space3.getPlayer() == space5.getPlayer() && space5.getPlayer() == space7.getPlayer()&& space3.getPlayer() != 2){
-            winner = space3.getPlayer();
-        }else if (space1.getPlayer() == space4.getPlayer() && space4.getPlayer() == space7.getPlayer() && space1.getPlayer() != 2){
-            winner = space1.getPlayer();
-        }else if (space2.getPlayer() == space5.getPlayer() && space5.getPlayer() == space8.getPlayer() && space2.getPlayer() != 2){
-            winner = space2.getPlayer();
-        }else if (space3.getPlayer() == space6.getPlayer() && space6.getPlayer() == space9.getPlayer() && space3.getPlayer() != 2){
-            winner = space3.getPlayer();
-        }else if (space1.getPlayer() == space2.getPlayer() && space2.getPlayer() == space3.getPlayer() && space1.getPlayer() != 2){
-            winner = space1.getPlayer();
-        }else if (space4.getPlayer() == space5.getPlayer() && space5.getPlayer() == space6.getPlayer() && space4.getPlayer() != 2){
-            winner = space4.getPlayer();
-        }else if (space7.getPlayer() == space8.getPlayer() && space8.getPlayer() == space9.getPlayer() && space7.getPlayer() != 2){
-            winner = space7.getPlayer();
-        }else {
+
+        if (mGameBoard[0][0] == mGameBoard[0][1] && mGameBoard[0][1] == mGameBoard[0][2] && mGameBoard[0][0] != 2){          //Check Row 1
+            winner = (alternateShape-1)%2;
+        }else if (mGameBoard[1][0] == mGameBoard[1][1] && mGameBoard[1][1] == mGameBoard[1][2] && mGameBoard[1][0] != 2){    //Check Row 2
+            winner = (alternateShape-1)%2;
+        }else if (mGameBoard[2][0] == mGameBoard[2][1] && mGameBoard[2][1] == mGameBoard[2][2] && mGameBoard[2][0] != 2){    //Check Row 3
+            winner = (alternateShape-1)%2;
+        }else if (mGameBoard[0][0] == mGameBoard[1][0] && mGameBoard[1][0] == mGameBoard[2][0] && mGameBoard[0][0] != 2){    //Check Col 1
+            winner = (alternateShape-1)%2;
+        }else if (mGameBoard[0][1] == mGameBoard[1][1] && mGameBoard[1][1] == mGameBoard[2][1] && mGameBoard[0][1] != 2){    //Check Col 2
+            winner = (alternateShape-1)%2;
+        }else if (mGameBoard[0][2] == mGameBoard[1][2] && mGameBoard[1][2] == mGameBoard[2][2] && mGameBoard[0][2] != 2){    //Check Col 3
+            winner = (alternateShape-1)%2;
+        }else if (mGameBoard[0][0] == mGameBoard[1][1] && mGameBoard[1][1] == mGameBoard[2][2] && mGameBoard[0][0] != 2){    //Check Diag \
+            winner = (alternateShape-1)%2;
+        }else if (mGameBoard[2][0] == mGameBoard[1][1] && mGameBoard[1][1] == mGameBoard[0][2] && mGameBoard[2][0] != 2){    //Check Diag /
+            winner = (alternateShape-1)%2;
+        }else{
             winner = 2;
         }
-
 
         if (winner == 1){
             xScore++;
@@ -242,6 +248,14 @@ public class CoopGameBoardFragment extends Fragment implements View.OnClickListe
             //Do something/Continue Play
         }
 
+    }
+
+    private void resetGameArray(){
+        for(int col = 0; col < 3; col++){
+            for(int row = 0; row < 3; row++){
+                mGameBoard[col][row] = 2;
+            }
+        }
     }
 
     private void disableSpaces(){

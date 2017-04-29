@@ -86,7 +86,7 @@ public class CoopActivity extends AppCompatActivity {
 
     private void clearGameBoard() {
         if (gameBoardFragment != null) {
-            gameBoardFragment.clearBoard();
+            gameBoardFragment.resetGame();
             gameBoardFragment.enableSpaces();
         } else {
             Toast.makeText(getApplicationContext(), "fragment 2  is null", Toast.LENGTH_SHORT).show();
@@ -96,7 +96,6 @@ public class CoopActivity extends AppCompatActivity {
 
     public void updateScoreboard(int xScore, int oScore) {
         if (xScore <= 3 && oScore <= 3) {
-            Toast.makeText(getApplicationContext(), Integer.toString(xScore), Toast.LENGTH_SHORT).show();
             for (int i = 0; i < xScore; i++) {
                 xScoreDots.get(i).setBackgroundResource(R.drawable.dot_filled);
             }
