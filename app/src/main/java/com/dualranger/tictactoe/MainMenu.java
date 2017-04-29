@@ -8,10 +8,6 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 
-/**
- * Created by evanfaler on 4/27/17.
- */
-
 public class MainMenu extends AppCompatActivity {
 
     private Button singlePlayerButton;

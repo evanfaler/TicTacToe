@@ -12,15 +12,15 @@ import java.util.Arrays;
 import java.util.List;
 
 public class CoopGameBoardFragment extends Fragment implements View.OnClickListener {
-    private SpaceView space1;
-    private SpaceView space2;
-    private SpaceView space3;
-    private SpaceView space4;
-    private SpaceView space5;
-    private SpaceView space6;
-    private SpaceView space7;
-    private SpaceView space8;
-    private SpaceView space9;
+    private static SpaceView space1;
+    private static SpaceView space2;
+    private static SpaceView space3;
+    private static SpaceView space4;
+    private static SpaceView space5;
+    private static SpaceView space6;
+    private static SpaceView space7;
+    private static SpaceView space8;
+    private static SpaceView space9;
     private List<SpaceView> gameSpaces;
     private int winner;
     private int xScore = 0;
@@ -28,7 +28,7 @@ public class CoopGameBoardFragment extends Fragment implements View.OnClickListe
     private TextView xScoreView;
     private TextView oScoreView;
 
-    int alternateShape = 1;
+    private int alternateShape = 1;
 
     public void resetScore(){
         xScore = 0;
@@ -86,6 +86,7 @@ public class CoopGameBoardFragment extends Fragment implements View.OnClickListe
                     alternateShape++;
                     space1.invalidate();
                     isWin();
+                    System.gc();
                 }else{
                     Toast.makeText(v.getContext(),"Invalid Location", Toast.LENGTH_SHORT).show();
                 }
@@ -97,6 +98,7 @@ public class CoopGameBoardFragment extends Fragment implements View.OnClickListe
                     alternateShape++;
                     space2.invalidate();
                     isWin();
+                    System.gc();
                 }else{
                     Toast.makeText(v.getContext(),"Invalid Location", Toast.LENGTH_SHORT).show();
                 }
@@ -108,6 +110,7 @@ public class CoopGameBoardFragment extends Fragment implements View.OnClickListe
                     alternateShape++;
                     space3.invalidate();
                     isWin();
+                    System.gc();
                 }else{
                     Toast.makeText(v.getContext(),"Invalid Location", Toast.LENGTH_SHORT).show();
                 }
@@ -119,6 +122,7 @@ public class CoopGameBoardFragment extends Fragment implements View.OnClickListe
                     alternateShape++;
                     space4.invalidate();
                     isWin();
+                    System.gc();
                 }else{
                     Toast.makeText(v.getContext(),"Invalid Location", Toast.LENGTH_SHORT).show();
                 }
@@ -130,6 +134,7 @@ public class CoopGameBoardFragment extends Fragment implements View.OnClickListe
                     alternateShape++;
                     space5.invalidate();
                     isWin();
+                    System.gc();
                 }else{
                     Toast.makeText(v.getContext(),"Invalid Location", Toast.LENGTH_SHORT).show();
                 }
@@ -141,6 +146,7 @@ public class CoopGameBoardFragment extends Fragment implements View.OnClickListe
                     alternateShape++;
                     space6.invalidate();
                     isWin();
+                    System.gc();
                 }else{
                     Toast.makeText(v.getContext(),"Invalid Location", Toast.LENGTH_SHORT).show();
                 }
@@ -152,6 +158,7 @@ public class CoopGameBoardFragment extends Fragment implements View.OnClickListe
                     alternateShape++;
                     space7.invalidate();
                     isWin();
+                    System.gc();
                 }else{
                     Toast.makeText(v.getContext(),"Invalid Location", Toast.LENGTH_SHORT).show();
                 }
@@ -163,6 +170,7 @@ public class CoopGameBoardFragment extends Fragment implements View.OnClickListe
                     alternateShape++;
                     space8.invalidate();
                     isWin();
+                    System.gc();
                 }else{
                     Toast.makeText(v.getContext(),"Invalid Location", Toast.LENGTH_SHORT).show();
                 }
@@ -174,6 +182,7 @@ public class CoopGameBoardFragment extends Fragment implements View.OnClickListe
                     alternateShape++;
                     space9.invalidate();
                     isWin();
+                    System.gc();
                 }else{
                     Toast.makeText(v.getContext(),"Invalid Location", Toast.LENGTH_SHORT).show();
                 }
@@ -185,14 +194,12 @@ public class CoopGameBoardFragment extends Fragment implements View.OnClickListe
         for(SpaceView space:gameSpaces){
             space.setPlayer(2);
             space.setPlayable(true);
-            space.setBackgroundResource(R.drawable.blank);
+            space.setBackgroundColor(0x000000);
             space.invalidate();
         }
     }
 
-    public void isWin(){
-        int winner = 0;
-
+    private void isWin(){
         if(space1.getPlayer() == space5.getPlayer() && space5.getPlayer() == space9.getPlayer() && space1.getPlayer() != 2){
             winner = space1.getPlayer();
         }else if (space3.getPlayer() == space5.getPlayer() && space5.getPlayer() == space7.getPlayer()&& space3.getPlayer() != 2){
@@ -237,7 +244,7 @@ public class CoopGameBoardFragment extends Fragment implements View.OnClickListe
 
     }
 
-    public void disableSpaces(){
+    private void disableSpaces(){
         space1.setEnabled(false);
         space2.setEnabled(false);
         space3.setEnabled(false);

@@ -2,7 +2,6 @@ package com.dualranger.tictactoe;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.icu.util.Measure;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -49,6 +48,14 @@ public class SpaceView extends View {
         } else {
             //Do nothing
         }
+    }
+
+    @Override
+    public void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+
+        int parentWidth = MeasureSpec.getSize(widthMeasureSpec);
+        this.setMeasuredDimension(parentWidth, parentWidth);
+
     }
 
 }

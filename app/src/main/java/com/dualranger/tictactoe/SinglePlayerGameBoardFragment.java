@@ -5,10 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * Created by evanfaler on 4/27/17.
- */
-
 public class SinglePlayerGameBoardFragment extends android.support.v4.app.Fragment implements View.OnClickListener {
 
     @Override

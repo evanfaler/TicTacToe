@@ -17,46 +17,40 @@
         <com.dualranger.tictactoe.SpaceView
             android:id="@+id/space_1"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="30"
+            android:layout_height="wrap_content"
             android:layout_margin="10dp"/>
 
         <View
             android:id="@+id/horiz_one"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:background="@color/boardLines"
-            android:layout_weight="3"/>
+            android:layout_height="@dimen/board_line_thickness"
+            android:background="@color/boardLines"/>
 
         <com.dualranger.tictactoe.SpaceView
             android:id="@+id/space_4"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="30"
+            android:layout_height="wrap_content"
             android:layout_margin="10dp"/>
 
         <View
             android:id="@+id/horiz_two"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:background="@color/boardLines"
-            android:layout_weight="3"/>
+            android:layout_height="@dimen/board_line_thickness"
+            android:background="@color/boardLines"/>
 
         <com.dualranger.tictactoe.SpaceView
             android:id="@+id/space_7"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="30"
+            android:layout_height="wrap_content"
             android:layout_margin="10dp"/>
 
     </LinearLayout>
 
     <View
         android:id="@+id/left_vertical"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/board_line_thickness"
         android:layout_height="match_parent"
-        android:background="@color/boardLines"
-        android:layout_weight="3"/>
+        android:background="@color/boardLines"/>
 
     <LinearLayout
         android:id="@+id/column_two"
@@ -68,46 +62,40 @@
         <com.dualranger.tictactoe.SpaceView
             android:id="@+id/space_2"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="30"
+            android:layout_height="wrap_content"
             android:layout_margin="10dp"/>
 
         <View
             android:id="@+id/horiz_three"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:background="@color/boardLines"
-            android:layout_weight="3"/>
+            android:layout_height="@dimen/board_line_thickness"
+            android:background="@color/boardLines"/>
 
         <com.dualranger.tictactoe.SpaceView
             android:id="@+id/space_5"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="30"
+            android:layout_height="wrap_content"
             android:layout_margin="10dp"/>
 
         <View
             android:id="@+id/horiz_four"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:background="@color/boardLines"
-            android:layout_weight="3"/>
+            android:layout_height="@dimen/board_line_thickness"
+            android:background="@color/boardLines"/>
 
         <com.dualranger.tictactoe.SpaceView
             android:id="@+id/space_8"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="30"
+            android:layout_height="wrap_content"
             android:layout_margin="10dp"/>
 
     </LinearLayout>
 
     <View
         android:id="@+id/right_vertical"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/board_line_thickness"
         android:layout_height="match_parent"
-        android:background="@color/boardLines"
-        android:layout_weight="3"/>
+        android:background="@color/boardLines"/>
 
     <LinearLayout
         android:id="@+id/column_three"
@@ -119,36 +107,31 @@
         <com.dualranger.tictactoe.SpaceView
             android:id="@+id/space_3"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="30"
+            android:layout_height="wrap_content"
             android:layout_margin="10dp"/>
 
         <View
             android:id="@+id/horiz_five"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:background="@color/boardLines"
-            android:layout_weight="3"/>
+            android:layout_height="@dimen/board_line_thickness"
+            android:background="@color/boardLines"/>
 
         <com.dualranger.tictactoe.SpaceView
             android:id="@+id/space_6"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="30"
+            android:layout_height="wrap_content"
             android:layout_margin="10dp"/>
 
         <View
             android:id="@+id/horiz_six"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:background="@color/boardLines"
-            android:layout_weight="3"/>
+            android:layout_height="@dimen/board_line_thickness"
+            android:background="@color/boardLines"/>
 
         <com.dualranger.tictactoe.SpaceView
             android:id="@+id/space_9"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="30"
+            android:layout_height="wrap_content"
             android:layout_margin="10dp"/>
 
     </LinearLayout>

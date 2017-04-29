@@ -84,7 +84,7 @@ public class CoopActivity extends AppCompatActivity {
         return true;
     }
 
-    public void clearGameBoard() {
+    private void clearGameBoard() {
         if (gameBoardFragment != null) {
             gameBoardFragment.clearBoard();
             gameBoardFragment.enableSpaces();
@@ -142,7 +142,7 @@ public class CoopActivity extends AppCompatActivity {
         //TODO replace button with New Game button if dialog is cancelled.
     }
 
-    public void resetScoreMarkers(){
+    private void resetScoreMarkers(){
         for(ScoreDotView marker : oScoreDots){
             marker.setBackgroundResource(R.drawable.dot_empty);
         }

@@ -4,10 +4,6 @@
     <color name="white">#FFFFFF</color>
     <color name="colorPrimaryDark">#212121</color>
     <color name="colorAccent">#E86850</color>
-    <color name="boardBackground">#FFFFFF</color>
     <color name="boardLines">#8BC2E9</color>
-    <color name="textColor">#212121</color>
-    <color name="xColor">#2C363F</color>
-    <color name="oColor">#2C363F</color>
 
 </resources>

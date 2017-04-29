@@ -3,11 +3,7 @@ package com.dualranger.tictactoe;
 import android.content.Context;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
-import android.widget.ImageView;
 
-/**
- * Created by evanfaler on 4/28/2017.
- */
 
 public class ScoreDotView extends AppCompatImageView {
 

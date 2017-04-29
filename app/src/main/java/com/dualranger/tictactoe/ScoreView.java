@@ -4,12 +4,6 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
-import android.view.View;
-import android.widget.ImageView;
-
-/**
- * Created by evanfaler on 4/28/2017.
- */
 
 public class ScoreView extends AppCompatImageView {
 
