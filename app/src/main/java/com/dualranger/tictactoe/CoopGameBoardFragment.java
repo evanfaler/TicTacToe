@@ -206,7 +206,6 @@ public class CoopGameBoardFragment extends Fragment implements View.OnClickListe
     }
 
     private void isWin(){
-
         if (mGameBoard[0][0] == mGameBoard[0][1] && mGameBoard[0][1] == mGameBoard[0][2] && mGameBoard[0][0] != 2){          //Check Row 1
             winner = (alternateShape-1)%2;
         }else if (mGameBoard[1][0] == mGameBoard[1][1] && mGameBoard[1][1] == mGameBoard[1][2] && mGameBoard[1][0] != 2){    //Check Row 2
