@@ -139,8 +139,8 @@ public class SinglePlayerActivity extends AppCompatActivity {
             public void onClick(View v) {
                 gameOverDialog.dismiss();
                 clearGameBoard();
-                CoopGameBoardFragment fragment = (CoopGameBoardFragment) getSupportFragmentManager().findFragmentById(R.id.game_board_container);
-                fragment.resetScore();
+                SinglePlayerGameBoardFragment fragment = (SinglePlayerGameBoardFragment) getSupportFragmentManager().findFragmentById(R.id.game_board_container);
+                fragment.resetGame();
                 resetScoreMarkers();
                 resetButton.setVisibility(View.VISIBLE);
             }
